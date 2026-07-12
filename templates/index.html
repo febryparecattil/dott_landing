@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dott Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="hero">
+  <header>
+    <div class="logo"><span class="logo-mark">⠿</span> Dott Health</div>
+  </header>
+
+  <section class="main-content">
+    <div class="content">
+      <span class="badge">Launching soon</span>
+      <h1>One app for your family's<br><span>whole health journey.</span></h1>
+      <p>We're building the AI-powered platform that stays with your family through every stage of health - from prevention to recovery, at home or in hospital.</p>
+    </div>
+
+    <div class="card">
+      <h2>Be first through the door.</h2>
+      <p class="subtitle">Join the wait-list for early access</p>
+      <form id="waitlistForm">
+        <input id="name" type="text" placeholder="Full name" required>
+        <input id="email" type="email" placeholder="Email address" required>
+        <input id="phone" type="tel" placeholder="Phone number (Optional)">
+        <button type="submit">Join the waitlist</button>
+        <p class="privacy">No spam. Just one email when we launch.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>© 2026 DOTT·HEALTH. All rights reserved.</footer>
+</main>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
