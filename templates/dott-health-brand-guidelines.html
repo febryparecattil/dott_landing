@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dott Health — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#430A4D; --mist:#F7C8FF; --periwinkle:#94A4E6; --tangerine:#FF6A32;
+    --amber:#ECC03C; --pgreen:#B2E7CC; --pyellow:#FAE89E;
+    --success:#19855D; --warning:#D2800F; --error:#D83C34;
+    --ink:#2E282F; --ink-2:#655B67; --line:#ECE9ED; --white:#FFFFFF;
+    --fd:'Parkinsans', sans-serif; --fb:'Inter', sans-serif; --fm:'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family:var(--fb); color:var(--ink); background:#FDFBFE; line-height:1.5; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+  h1,h2,h3{ font-family:var(--fd); color:var(--plum); }
+  code, .mono{ font-family:var(--fm); }
+  section{ padding:64px 0; border-bottom:1px solid var(--line); }
+
+  /* Cover */
+  .cover{ background:var(--plum); color:#fff; padding:96px 0 72px; }
+  .cover .logo{ display:flex; align-items:center; gap:14px; margin-bottom:56px; }
+  .cover h1{ color:#fff; font-size:48px; font-weight:600; line-height:1.15; max-width:680px; }
+  .cover p{ color:rgba(255,255,255,.7); font-size:17px; margin-top:16px; max-width:520px; }
+  .cover .meta{ display:flex; gap:32px; margin-top:48px; font-size:13px; color:rgba(255,255,255,.55); }
+
+  .eyebrow{ font-family:var(--fb); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--tangerine); font-weight:700; margin-bottom:10px; display:block; }
+  h2.title{ font-size:32px; margin-bottom:8px; }
+  .lede{ color:var(--ink-2); font-size:15.5px; max-width:640px; margin-bottom:36px; }
+
+  /* Color tier blocks */
+  .tier{ margin-bottom:40px; }
+  .tier-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
+  .tier-head h3{ font-size:18px; }
+  .tier-head span{ font-size:12.5px; color:var(--ink-2); }
+  .swatch-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:16px; }
+  .swatch{ border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; }
+  .swatch .fill{ height:110px; display:flex; align-items:flex-end; padding:12px; }
+  .swatch .fill span{ font-family:var(--fm); font-size:12px; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,.85); color:#111; }
+  .swatch .fill.dark span{ background:rgba(0,0,0,.35); color:#fff; }
+  .swatch .info{ padding:14px 16px; }
+  .swatch .name{ font-family:var(--fd); font-weight:600; font-size:15px; color:var(--plum); margin-bottom:2px; }
+  .swatch .role{ font-size:12px; color:var(--ink-2); margin-bottom:10px; }
+  .swatch table{ width:100%; border-collapse:collapse; font-size:11.5px; }
+  .swatch table td{ padding:3px 0; color:var(--ink-2); }
+  .swatch table td.v{ font-family:var(--fm); color:var(--ink); text-align:right; }
+  .swatch .contrast-row{ display:flex; justify-content:space-between; margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); font-size:11.5px; }
+  .badge{ display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px; }
+  .badge.pass{ background:#E4F5EE; color:#0F6B49; }
+  .badge.fail{ background:#FBE7E6; color:#A02A24; }
+  .badge.large{ background:#FCF1DD; color:#8A5A0C; }
+
+  .warn-box{ border:1.5px solid var(--error); background:#FDF3F2; border-radius:12px; padding:18px 22px; margin-top:8px; }
+  .warn-box strong{ color:#A02A24; }
+  .warn-box p{ font-size:13.5px; color:var(--ink); margin-top:6px; }
+
+  /* Typography */
+  .type-row{ display:flex; align-items:baseline; gap:24px; padding:20px 0; border-bottom:1px solid var(--line); }
+  .type-row:last-child{ border-bottom:none; }
+  .type-row .sample{ font-family:var(--fd); color:var(--plum); flex:1; }
+  .type-row .meta{ font-family:var(--fm); font-size:12px; color:var(--ink-2); width:220px; flex:none; }
+
+  /* Logo section */
+  .logo-demo{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .logo-card{ border-radius:14px; padding:40px; display:flex; align-items:center; justify-content:center; }
+  .logo-card.light{ background:#fff; border:1px solid var(--line); }
+  .logo-card.dark{ background:var(--plum); }
+  .logo-lockup{ display:flex; align-items:center; gap:14px; }
+  .logo-lockup .wordmark{ font-family:var(--fd); font-weight:500; font-size:28px; }
+  .logo-card.light .wordmark{ color:var(--plum); }
+  .logo-card.dark .wordmark{ color:#fff; }
+
+  /* Do / Don't */
+  .dd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .dd-card{ border-radius:14px; padding:24px; }
+  .dd-card.do{ background:#E4F5EE; border:1px solid #B7DFCC; }
+  .dd-card.dont{ background:#FBE7E6; border:1px solid #F0BDBA; }
+  .dd-card h4{ font-family:var(--fd); font-size:15px; margin-bottom:10px; }
+  .dd-card.do h4{ color:#0F6B49; }
+  .dd-card.dont h4{ color:#A02A24; }
+  .dd-card ul{ padding-left:18px; font-size:13.5px; color:var(--ink); }
+  .dd-card li{ margin-bottom:6px; }
+
+  footer{ padding:40px 0; text-align:center; color:var(--ink-2); font-size:12.5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <div class="logo">
+      <svg width="150" height="31" viewBox="0 0 226 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="6.16992" r="4" fill="white"/><circle cx="18" cy="18.1699" r="4" fill="white"/><circle cx="18" cy="30.1699" r="4" fill="white"/><circle opacity="0.5" cx="32" cy="30.1699" r="4" fill="white"/><circle cx="32" cy="18.1699" r="4" fill="white"/><circle cx="4" cy="18.1699" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="30.1699" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="42.1699" r="4" fill="white"/><circle opacity="0.5" cx="18" cy="42.1699" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="6.16992" r="4" fill="white"/>
+        <path d="M53.3688 34V11.76H60.6328C63.0221 11.76 65.0914 12.2187 66.8408 13.136C68.6114 14.032 69.9874 15.3227 70.9688 17.008C71.9501 18.672 72.4408 20.656 72.4408 22.96C72.4408 25.2427 71.9501 27.216 70.9688 28.88C69.9874 30.5227 68.6114 31.792 66.8408 32.688C65.0914 33.5627 63.0221 34 60.6328 34H53.3688ZM57.0168 31.024H60.6328C63.2568 31.024 65.2514 30.3093 66.6168 28.88C68.0034 27.4507 68.6968 25.4773 68.6968 22.96C68.6968 20.4213 68.0034 18.416 66.6168 16.944C65.2514 15.472 63.2568 14.736 60.6328 14.736H57.0168V31.024ZM83.0643 34.224C81.4003 34.224 79.8963 33.8507 78.5523 33.104C77.2296 32.3573 76.1736 31.3013 75.3843 29.936C74.6163 28.5707 74.2323 26.9813 74.2323 25.168C74.2323 23.3333 74.6269 21.744 75.4163 20.4C76.2269 19.056 77.3149 18.0107 78.6803 17.264C80.0456 16.5173 81.5603 16.144 83.2243 16.144C84.9096 16.144 86.4243 16.5173 87.7683 17.264C89.1336 18.0107 90.2109 19.056 91.0003 20.4C91.8109 21.744 92.2163 23.3333 92.2163 25.168C92.2163 26.9813 91.8003 28.5707 90.9683 29.936C90.1576 31.3013 89.0589 32.3573 87.6723 33.104C86.2856 33.8507 84.7496 34.224 83.0643 34.224ZM83.0643 31.056C83.9816 31.056 84.8456 30.8427 85.6563 30.416C86.4883 29.968 87.1603 29.3067 87.6723 28.432C88.2056 27.5573 88.4723 26.4693 88.4723 25.168C88.4723 23.8453 88.2163 22.7573 87.7043 21.904C87.1923 21.0293 86.5309 20.3787 85.7203 19.952C84.9309 19.5253 84.0776 19.312 83.1603 19.312C82.2429 19.312 81.3896 19.5253 80.6003 19.952C79.8109 20.3787 79.1709 21.0293 78.6803 21.904C78.1896 22.7573 77.9443 23.8453 77.9443 25.168C77.9443 26.4693 78.1789 27.5573 78.6483 28.432C79.1176 29.3067 79.7363 29.968 80.5043 30.416C81.2936 30.8427 82.1469 31.056 83.0643 31.056ZM101.103 34.224C99.7585 34.224 98.6385 33.7653 97.7425 32.848C96.8465 31.9307 96.3985 30.6827 96.3985 29.104V19.344H93.6785V16.368H104.367V19.344H100.079V29.328C100.079 29.9253 100.228 30.352 100.527 30.608C100.847 30.864 101.188 30.992 101.551 30.992C101.871 30.992 102.159 30.9387 102.415 30.832C102.671 30.7253 102.916 30.5547 103.151 30.32L105.039 32.592C104.441 33.168 103.833 33.584 103.215 33.84C102.596 34.096 101.892 34.224 101.103 34.224ZM94.9905 17.744V16.368C95.4385 16.368 95.7798 16.24 96.0145 15.984C96.2705 15.728 96.3985 15.376 96.3985 14.928V11.984H100.079V14.32C100.079 14.6187 100.004 14.9173 99.8545 15.216C99.7052 15.4933 99.4918 15.7387 99.2145 15.952C98.9585 16.144 98.6705 16.2827 98.3505 16.368L94.9905 17.744ZM113.369 34.224C112.025 34.224 110.905 33.7653 110.009 32.848C109.113 31.9307 108.665 30.6827 108.665 29.104V19.344H105.945V16.368H116.633V19.344H112.345V29.328C112.345 29.9253 112.494 30.352 112.793 30.608C113.113 30.864 113.454 30.992 113.817 30.992C114.137 30.992 114.425 30.9387 114.681 30.832C114.937 30.7253 115.182 30.5547 115.417 30.32L117.305 32.592C116.707 33.168 116.099 33.584 115.481 33.84C114.862 34.096 114.158 34.224 113.369 34.224ZM107.257 17.744V16.368C107.705 16.368 108.046 16.24 108.281 15.984C108.537 15.728 108.665 15.376 108.665 14.928V11.984H112.345V14.32C112.345 14.6187 112.27 14.9173 112.121 15.216C111.971 15.4933 111.758 15.7387 111.481 15.952C111.225 16.144 110.937 16.2827 110.617 16.368L107.257 17.744ZM127.86 11.92H130.1V34H127.86V11.92ZM142.228 11.92H144.468V34H142.228V11.92ZM129.588 21.808H142.868V23.664H129.588V21.808ZM157.163 34.224C155.861 34.224 154.645 34.032 153.515 33.648C152.405 33.2427 151.424 32.6667 150.571 31.92C149.739 31.152 149.088 30.224 148.619 29.136C148.149 28.048 147.915 26.8 147.915 25.392C147.915 24.112 148.16 22.928 148.651 21.84C149.163 20.7307 149.856 19.76 150.731 18.928C151.605 18.096 152.597 17.456 153.707 17.008C154.816 16.5387 155.968 16.304 157.163 16.304C158.208 16.304 159.168 16.4427 160.043 16.72C160.917 16.976 161.664 17.3493 162.283 17.84C162.923 18.3307 163.413 18.896 163.755 19.536C164.117 20.1547 164.299 20.8373 164.299 21.584C164.299 22.6933 164 23.6107 163.403 24.336C162.827 25.0613 162.048 25.6267 161.067 26.032C160.085 26.4373 159.008 26.7253 157.835 26.896C156.661 27.0453 155.477 27.12 154.283 27.12C153.792 27.12 153.301 27.1093 152.811 27.088C152.341 27.0667 151.883 27.0347 151.435 26.992C151.008 26.928 150.603 26.8747 150.219 26.832C150.325 27.792 150.667 28.688 151.243 29.52C151.84 30.352 152.64 31.024 153.643 31.536C154.667 32.0267 155.84 32.272 157.163 32.272C158.144 32.272 159.051 32.1013 159.883 31.76C160.715 31.3973 161.44 30.9707 162.059 30.48C162.699 29.9893 163.2 29.5413 163.563 29.136L165.195 30.416C164.768 30.992 164.16 31.5787 163.371 32.176C162.603 32.752 161.696 33.2427 160.651 33.648C159.605 34.032 158.443 34.224 157.163 34.224ZM154.059 25.168C154.976 25.168 155.904 25.1147 156.843 25.008C157.803 24.88 158.677 24.688 159.467 24.432C160.256 24.176 160.896 23.8347 161.387 23.408C161.877 22.96 162.123 22.416 162.123 21.776C162.123 21.0933 161.899 20.4853 161.451 19.952C161.024 19.4187 160.437 19.0027 159.691 18.704C158.965 18.4053 158.165 18.256 157.291 18.256C155.968 18.256 154.773 18.5867 153.707 19.248C152.64 19.888 151.787 20.72 151.147 21.744C150.507 22.7467 150.155 23.8027 150.091 24.912C150.539 24.9973 151.104 25.0613 151.787 25.104C152.491 25.1467 153.248 25.168 154.059 25.168ZM175.53 34.224C174.015 34.224 172.629 33.8507 171.37 33.104C170.133 32.336 169.141 31.28 168.394 29.936C167.669 28.5707 167.306 27.0027 167.306 25.232C167.306 23.4613 167.669 21.904 168.394 20.56C169.141 19.216 170.133 18.1707 171.37 17.424C172.629 16.6773 174.015 16.304 175.53 16.304C177.173 16.304 178.623 16.6773 179.882 17.424C181.141 18.1707 182.037 19.1733 182.57 20.432V16.528H184.81V34H183.978C183.53 34 183.178 33.8827 182.922 33.648C182.687 33.392 182.57 33.04 182.57 32.592V30.032C182.015 31.2907 181.098 32.304 179.818 33.072C178.538 33.84 177.109 34.224 175.53 34.224ZM176.074 32.272C177.29 32.272 178.389 31.984 179.37 31.408C180.351 30.832 181.13 30.0213 181.706 28.976C182.282 27.9093 182.57 26.6613 182.57 25.232C182.57 23.8027 182.282 22.5653 181.706 21.52C181.13 20.4747 180.351 19.6747 179.37 19.12C178.389 18.544 177.29 18.256 176.074 18.256C174.858 18.256 173.759 18.544 172.778 19.12C171.797 19.6747 171.018 20.4747 170.442 21.52C169.866 22.5653 169.578 23.8027 169.578 25.232C169.578 26.6613 169.866 27.9093 170.442 28.976C171.018 30.0213 171.797 30.832 172.778 31.408C173.759 31.984 174.858 32.272 176.074 32.272ZM189.284 30.928V10.32H191.524V30.736C191.524 31.248 191.662 31.632 191.94 31.888C192.217 32.1227 192.548 32.24 192.932 32.24C193.166 32.24 193.401 32.1973 193.636 32.112L194.148 33.808C193.7 34.0853 193.156 34.224 192.516 34.224C192.004 34.224 191.502 34.1173 191.012 33.904C190.521 33.6907 190.105 33.3387 189.764 32.848C189.444 32.3573 189.284 31.7173 189.284 30.928ZM201.768 34.224C200.68 34.224 199.763 33.8613 199.016 33.136C198.27 32.4107 197.896 31.504 197.896 30.416V18.416H194.664V16.528H203.88V18.416H200.136V30.416C200.136 30.928 200.286 31.3547 200.584 31.696C200.904 32.0373 201.32 32.208 201.832 32.208C202.131 32.208 202.419 32.144 202.696 32.016C202.974 31.888 203.23 31.7493 203.464 31.6L204.488 33.36C204.168 33.616 203.763 33.8293 203.272 34C202.782 34.1493 202.28 34.224 201.768 34.224ZM196.456 17.712V16.528C196.926 16.528 197.278 16.4107 197.512 16.176C197.768 15.92 197.896 15.5573 197.896 15.088V12.144H200.168V14.672C200.168 14.9707 200.115 15.248 200.008 15.504C199.923 15.76 199.784 15.984 199.592 16.176C199.4 16.3467 199.144 16.464 198.824 16.528L196.456 17.712ZM207.379 34V10.32H209.619V20.336C209.875 19.632 210.28 18.9813 210.835 18.384C211.411 17.7653 212.115 17.264 212.947 16.88C213.8 16.496 214.76 16.304 215.827 16.304C217.256 16.304 218.483 16.624 219.507 17.264C220.531 17.904 221.309 18.7893 221.843 19.92C222.397 21.0293 222.675 22.2987 222.675 23.728V34H220.467V24.368C220.467 22.4267 219.976 20.9227 218.995 19.856C218.013 18.7893 216.733 18.256 215.155 18.256C214.131 18.256 213.203 18.544 212.371 19.12C211.539 19.6747 210.867 20.464 210.355 21.488C209.864 22.4907 209.619 23.664 209.619 25.008V34H207.379Z" fill="white"/>
+      </svg>
+    </div>
+    <span class="eyebrow" style="color:var(--mist);">Brand guidelines · v1.0</span>
+    <h1>Color, Type & Usage Guidelines</h1>
+    <p>Every value on this page has a defined role, an exact hex/RGB/HSL specification, and a tested WCAG contrast ratio. Nothing here is decorative-only unless explicitly marked as such.</p>
+    <div class="meta">
+      <span>Updated July 2026</span>
+      <span>Contrast standard: WCAG 2.1 AA</span>
+      <span>Fonts: Parkinsans + Inter</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LOGO ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Identity</span>
+    <h2 class="title">Logo</h2>
+    <p class="lede">The mark is a 3×4 asymmetric dot grid — 10 dots, single-color fill with two opacity levels (100% and 50%) rather than two separate hues. This is the authoritative source file; do not recolor individual dots or rearrange the grid.</p>
+    <div class="logo-demo">
+      <div class="logo-card light">
+        <svg width="34" height="35" viewBox="0 0 36 47" fill="none">
+          <circle cx="18" cy="6.17" r="4" fill="#430A4D"/><circle cx="18" cy="18.17" r="4" fill="#430A4D"/><circle cx="18" cy="30.17" r="4" fill="#430A4D"/><circle opacity="0.5" cx="32" cy="30.17" r="4" fill="#430A4D"/><circle cx="32" cy="18.17" r="4" fill="#430A4D"/><circle cx="4" cy="18.17" r="4" fill="#430A4D"/><circle opacity="0.5" cx="4" cy="30.17" r="4" fill="#430A4D"/><circle opacity="0.5" cx="4" cy="42.17" r="4" fill="#430A4D"/><circle opacity="0.5" cx="18" cy="42.17" r="4" fill="#430A4D"/><circle opacity="0.5" cx="4" cy="6.17" r="4" fill="#430A4D"/>
+        </svg>
+      </div>
+      <div class="logo-card dark">
+        <svg width="34" height="35" viewBox="0 0 36 47" fill="none">
+          <circle cx="18" cy="6.17" r="4" fill="white"/><circle cx="18" cy="18.17" r="4" fill="white"/><circle cx="18" cy="30.17" r="4" fill="white"/><circle opacity="0.5" cx="32" cy="30.17" r="4" fill="white"/><circle cx="32" cy="18.17" r="4" fill="white"/><circle cx="4" cy="18.17" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="30.17" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="42.17" r="4" fill="white"/><circle opacity="0.5" cx="18" cy="42.17" r="4" fill="white"/><circle opacity="0.5" cx="4" cy="6.17" r="4" fill="white"/>
+        </svg>
+      </div>
+    </div>
+    <p style="font-size:12.5px; color:var(--ink-2); margin-top:10px;">Plum fill for light backgrounds (left) · White fill for dark backgrounds (right) — same geometry and opacity pattern, single color swapped.</p>
+  </div>
+</section>
+
+<!-- ===================== COLOR — TIER 1 ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Color system</span>
+    <h2 class="title">Tier 1 — Brand (60 / 30 / 10)</h2>
+    <p class="lede">One dominant color, two calm supporting tones, exactly one accent used for action. This tier is load-bearing — it appears in navigation, buttons, links, and anything a user interacts with.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill dark" style="background:#430A4D;"><span>#430A4D</span></div>
+        <div class="info">
+          <div class="name">Plum</div>
+          <div class="role">Primary / dominant · 60%</div>
+          <table>
+            <tr><td>RGB</td><td class="v">67, 10, 77</td></tr>
+            <tr><td>HSL</td><td class="v">291°, 77%, 17%</td></tr>
+          </table>
+          <div class="contrast-row"><span>White text</span><span class="badge pass">15.12:1 AAA</span></div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="fill" style="background:#F7C8FF;"><span>#F7C8FF</span></div>
+        <div class="info">
+          <div class="name">Mist</div>
+          <div class="role">Secondary / supporting · 30%</div>
+          <table>
+            <tr><td>RGB</td><td class="v">247, 200, 255</td></tr>
+            <tr><td>HSL</td><td class="v">291°, 100%, 89%</td></tr>
+          </table>
+          <div class="contrast-row"><span>Plum text</span><span class="badge pass">10.55:1 AAA</span></div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="fill" style="background:#94A4E6;"><span>#94A4E6</span></div>
+        <div class="info">
+          <div class="name">Periwinkle</div>
+          <div class="role">Secondary / supporting · 30%</div>
+          <table>
+            <tr><td>RGB</td><td class="v">148, 164, 230</td></tr>
+            <tr><td>HSL</td><td class="v">228°, 62%, 74%</td></tr>
+          </table>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">5.80:1 AA</span></div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="fill" style="background:#FF6A32;"><span>#FF6A32</span></div>
+        <div class="info">
+          <div class="name">Tangerine</div>
+          <div class="role">Accent / the only CTA color · 10%</div>
+          <table>
+            <tr><td>RGB</td><td class="v">255, 106, 50</td></tr>
+            <tr><td>HSL</td><td class="v">16°, 100%, 60%</td></tr>
+          </table>
+          <div class="contrast-row"><span>White text</span><span class="badge fail">2.85:1 FAIL</span></div>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">4.90:1 AA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>Fix required on current buttons:</strong>
+      <p>Any button using <span class="mono">#FF6A32</span> with white label text fails WCAG AA (2.85:1, needs 4.5:1). Use <span class="mono">#2E282F</span> ink text on tangerine buttons instead — passes at 4.90:1.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLOR — TIER 2 ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Color system</span>
+    <h2 class="title">Tier 2 — Decorative only</h2>
+    <p class="lede">Fine for the logo dot mark, illustrations, and marketing pages. <strong>Never</strong> used for buttons, links, form states, or anything a user must act on — that's what Tier 3 is for.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill" style="background:#ECC03C;"><span>#ECC03C</span></div>
+        <div class="info">
+          <div class="name">Amber</div>
+          <div class="role">Decorative accent</div>
+          <table><tr><td>RGB</td><td class="v">236, 192, 60</td></tr><tr><td>HSL</td><td class="v">45°, 82%, 58%</td></tr></table>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">8.11:1 AAA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#B2E7CC;"><span>#B2E7CC</span></div>
+        <div class="info">
+          <div class="name">Pastel green</div>
+          <div class="role">Decorative accent</div>
+          <table><tr><td>RGB</td><td class="v">178, 231, 204</td></tr><tr><td>HSL</td><td class="v">149°, 52%, 80%</td></tr></table>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">10.12:1 AAA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#FAE89E;"><span>#FAE89E</span></div>
+        <div class="info">
+          <div class="name">Pastel yellow</div>
+          <div class="role">Decorative accent</div>
+          <table><tr><td>RGB</td><td class="v">250, 232, 158</td></tr><tr><td>HSL</td><td class="v">48°, 90%, 80%</td></tr></table>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">11.39:1 AAA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLOR — TIER 3 ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Color system</span>
+    <h2 class="title">Tier 3 — Semantic (protected)</h2>
+    <p class="lede">These meanings are locked. Never reuse these hues decoratively — in a health app, color carries meaning users rely on without reading text.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill dark" style="background:#19855D;"><span>#19855D</span></div>
+        <div class="info">
+          <div class="name">Success</div>
+          <div class="role">Confirmations, healthy status</div>
+          <table><tr><td>RGB</td><td class="v">25, 133, 93</td></tr><tr><td>HSL</td><td class="v">158°, 68%, 31%</td></tr></table>
+          <div class="contrast-row"><span>White text</span><span class="badge pass">4.61:1 AA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill dark" style="background:#D2800F;"><span>#D2800F</span></div>
+        <div class="info">
+          <div class="name">Warning</div>
+          <div class="role">Caution, needs attention</div>
+          <table><tr><td>RGB</td><td class="v">210, 128, 15</td></tr><tr><td>HSL</td><td class="v">35°, 87%, 44%</td></tr></table>
+          <div class="contrast-row"><span>Ink text</span><span class="badge pass">4.55:1 AA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill dark" style="background:#D83C34;"><span>#D83C34</span></div>
+        <div class="info">
+          <div class="name">Error / Emergency</div>
+          <div class="role">Failures, urgent alerts</div>
+          <table><tr><td>RGB</td><td class="v">216, 60, 52</td></tr><tr><td>HSL</td><td class="v">3°, 68%, 53%</td></tr></table>
+          <div class="contrast-row"><span>White text</span><span class="badge pass">4.55:1 AA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>Retired from decorative use:</strong>
+      <p><span class="mono">#FF1C4A</span> (original pink-red) and <span class="mono">#2DEE94</span> (vivid green) — both sit too close (RGB distance &lt; 80) to the semantic Error and Success colors above to be safe as general brand decoration. If you need them for a specific illustration, keep them away from any screen that also uses real status colors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEUTRALS ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Color system</span>
+    <h2 class="title">Neutrals / Text</h2>
+    <p class="lede">Tinted toward plum's hue (H291°) at low saturation, rather than true neutral gray — keeps text feeling like part of the same brand instead of a generic system gray. Lightness is unchanged from a true neutral, so contrast ratios are unaffected.</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill dark" style="background:#2E282F;"><span>#2E282F</span></div>
+        <div class="info">
+          <div class="name">Ink</div>
+          <div class="role">Primary text on light backgrounds</div>
+          <table><tr><td>RGB</td><td class="v">46, 40, 47</td></tr><tr><td>HSL</td><td class="v">291°, 8%, 17%</td></tr></table>
+          <div class="contrast-row"><span>On white</span><span class="badge pass">13.99:1 AAA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill dark" style="background:#655B67;"><span>#655B67</span></div>
+        <div class="info">
+          <div class="name">Ink secondary</div>
+          <div class="role">Helper text, captions, fine print</div>
+          <table><tr><td>RGB</td><td class="v">101, 91, 103</td></tr><tr><td>HSL</td><td class="v">291°, 6%, 38%</td></tr></table>
+          <div class="contrast-row"><span>On white</span><span class="badge pass">6.27:1 AA</span></div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#ECE9ED;"><span>#ECE9ED</span></div>
+        <div class="info">
+          <div class="name">Border</div>
+          <div class="role">Input borders, dividers</div>
+          <table><tr><td>RGB</td><td class="v">236, 233, 237</td></tr><tr><td>HSL</td><td class="v">291°, 10%, 92%</td></tr></table>
+          <div class="contrast-row"><span>Use for</span><span>Non-text elements only</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TYPOGRAPHY ===================== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Typography</span>
+    <h2 class="title">Type system</h2>
+    <p class="lede">Parkinsans for anything brand-forward (headlines, logo, buttons). Inter for body copy and UI text — better readability at small sizes.</p>
+
+    <div class="type-row"><div class="sample" style="font-size:44px; font-weight:600;">Headline / Semibold</div><div class="meta">Parkinsans 600 · 44px</div></div>
+    <div class="type-row"><div class="sample" style="font-size:28px; font-weight:500;">Section title / Medium</div><div class="meta">Parkinsans 500 · 28px</div></div>
+    <div class="type-row"><div class="sample" style="font-size:20px; font-weight:600; font-family:var(--fd);">Card title / Semibold</div><div class="meta">Parkinsans 600 · 20px</div></div>
+    <div class="type-row"><div class="sample" style="font-size:17px; font-family:var(--fb); font-weight:400; color:var(--ink);">Body text — Inter Regular, used for paragraphs and descriptions.</div><div class="meta">Inter 400 · 18px</div></div>
+    <div class="type-row"><div class="sample" style="font-size:13px; font-family:var(--fb); font-weight:400; color:var(--ink-2);">Caption / helper text — Inter Regular, secondary ink.</div><div class="meta">Inter 400 · 12px</div></div>
+  </div>
+</section>
+
+<!-- ===================== DO / DON'T ===================== -->
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <span class="eyebrow">Usage</span>
+    <h2 class="title">Do / Don't</h2>
+    <div class="dd-grid">
+      <div class="dd-card do">
+        <h4>Do</h4>
+        <ul>
+          <li>Use Tangerine as the only accent/CTA color across the product</li>
+          <li>Use dark ink text on Tangerine buttons (4.90:1)</li>
+          <li>Keep Success / Warning / Error reserved for real status states</li>
+          <li>Use Mist and Periwinkle interchangeably for calm backgrounds</li>
+          <li>Run new colors through a contrast checker before shipping</li>
+        </ul>
+      </div>
+      <div class="dd-card dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Add a second "loud" accent color alongside Tangerine</li>
+          <li>Use white text on Tangerine, Warning, or any light swatch</li>
+          <li>Reuse Success green or Error red for decoration/illustration</li>
+          <li>Introduce new hues without checking distance from existing ones</li>
+          <li>Rearrange or recolor the logo dot grid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Dott Health Brand Guidelines · v1.0 · Contrast measured against WCAG 2.1 AA (4.5:1 normal text, 3:1 large/UI)</footer>
+
+</body>
+</html>

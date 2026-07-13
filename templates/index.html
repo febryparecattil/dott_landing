@@ -1,42 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dott Health</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dott Health — Home Healthcare, Second Opinion &amp; Emergency Care in Kerala</title>
+<meta name="description" content="Dott Health brings home health care, second opinions, emergency care, and doctor consultations to your family in Kerala, with a pan-India launch planned next. Join the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-<main class="hero">
-  <header>
-    <div class="logo"><span class="logo-mark">⠿</span> Dott Health</div>
+
+<div class="page-bg" aria-hidden="true"></div>
+
+<div class="page">
+
+  <header class="site-header">
+    <a href="#top" class="logo" aria-label="Dott Health home">
+      <img class="logo-light" src="static/images/Dott_logo.svg" alt="Dott Health" height="26">
+      <img class="logo-dark" src="static/images/logo_purple.svg" alt="Dott Health" height="26">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="#" data-open-modal="vision-overlay">Our vision</a>
+      <a href="#" data-open-modal="contact-overlay">Contact us</a>
+    </nav>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg class="icon-bars" width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M0 1H22" stroke="white" stroke-width="2"/><path d="M0 8H22" stroke="white" stroke-width="2"/><path d="M0 15H22" stroke="white" stroke-width="2"/></svg>
+      <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1L17 17M17 1L1 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </header>
 
-  <section class="main-content">
-    <div class="content">
-      <span class="badge">Launching soon</span>
-      <h1>One app for your family's<br><span>whole health journey.</span></h1>
-      <p>We're building the AI-powered platform that stays with your family through every stage of health - from prevention to recovery, at home or in hospital.</p>
+  <main>
+    <section class="hero" id="top">
+      <img class="hero-dots" src="static/images/right_dot.svg" alt="" aria-hidden="true">
+      <div class="hero-inner">
+        <span class="badge">Launching soon</span>
+        <h1 class="hero-title">
+          One app for your family's<br>
+          <span class="accent">whole health journey.</span>
+        </h1>
+        <p class="hero-desc">We're building the AI-powered platform that stays with your family through every stage of health - from prevention to recovery, at home or in hospital.</p>
+        <button type="button" class="btn btn-primary" data-open-modal="waitlist-overlay">Join the waitlist</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 DOTT&middot;HEALTH. All rights reserved.</p>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="waitlist-overlay">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="waitlist-title">
+    <div class="modal-header">
+      <div id="waitlist-header-text">
+        <h3 id="waitlist-title">Be first through the door.</h3>
+        <p class="modal-sub">Join the wait-list for early access</p>
+      </div>
+      <button type="button" class="modal-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#2E282F" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
     </div>
 
-    <div class="card">
-      <h2>Be first through the door.</h2>
-      <p class="subtitle">Join the wait-list for early access</p>
-      <form id="waitlistForm">
-        <input id="name" type="text" placeholder="Full name" required>
-        <input id="email" type="email" placeholder="Email address" required>
-        <input id="phone" type="tel" placeholder="Phone number (Optional)">
-        <button type="submit">Join the waitlist</button>
-        <p class="privacy">No spam. Just one email when we launch.</p>
-      </form>
-    </div>
-  </section>
+    <form class="modal-form" id="waitlist-form">
+      <label class="sr-only" for="wl-name">Full name</label>
+      <input id="wl-name" name="name" type="text" placeholder="Full name" required>
 
-  <footer>© 2026 DOTT·HEALTH. All rights reserved.</footer>
-</main>
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+      <label class="sr-only" for="wl-email">Email address</label>
+      <input id="wl-email" name="email" type="email" placeholder="Email address" required>
+
+      <label class="sr-only" for="wl-phone">Phone number</label>
+      <input id="wl-phone" name="phone" type="tel" placeholder="Phone number (Optional)">
+
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      <p class="modal-note">No spam. Just one email when we launch.</p>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="vision-overlay" data-light-modal>
+  <div class="vision-wrap">
+    <img class="vision-image" src="static/images/vision_image.svg" alt="" aria-hidden="true">
+    <div class="modal-card vision-card" role="dialog" aria-modal="true" aria-labelledby="vision-title">
+      <button type="button" class="modal-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#2E282F" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="vision-scroll">
+        <div class="vision-scroll-inner">
+          <h2 id="vision-title" class="vision-heading">Our vision</h2>
+          <p class="vision-lead">To make hospital-quality healthcare a home experience - accessible to every family, anywhere, anytime.</p>
+          <p class="vision-body">Why this version works: Your original vision was accurate but read as three separate promises stitched together ("accessible, affordable, available... not limited by hospitals, geography..."). Investors and partners remember one sharp idea, not a list of adjectives. This version compresses the whole thesis into a single sentence: healthcare's location changes, not its quality. Everything else in your deck (Homespital&trade;, the Continuum, the unit model) becomes proof of that one claim.</p>
+
+          <h2 class="vision-heading">Mission</h2>
+          <p class="vision-lead">We bring hospital-grade care into the home - connecting patients, doctors, nurses, diagnostics, and pharmacy on one platform, so families get continuous care without the cost, delay, or disruption of a hospital visit.</p>
+          <p class="vision-body">Why this version works: Your original mission was five separate bullet points (bring care home, build network, connect stakeholders, reduce hospital visits, enable continuous care). A mission statement should be sayable in one breath and answer three questions: what do we do, how do we do it, why does it matter. This version does that in one sentence &mdash; the "how" (the platform) and the "why" (cost/delay/disruption) are both load-bearing, not decorative.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="contact-overlay" data-light-modal>
+  <div class="vision-wrap">
+    <img class="vision-image" src="static/images/contact_image.svg" alt="" aria-hidden="true">
+    <div class="modal-card vision-card" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+      <button type="button" class="modal-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#2E282F" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="vision-scroll">
+        <div class="vision-scroll-inner">
+          <h2 id="contact-title" class="vision-heading">Get in touch</h2>
+          <p class="contact-intro">Have a question about <strong>Dott.health</strong>? Want to bring hospital-quality care to your family, explore a partnership, or just learn more? We'd love to hear from you.</p>
+
+          <h3 class="contact-name">Subin Pappachen</h3>
+          <div class="contact-rows">
+            <a class="contact-row" href="tel:+919920638305">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 2.25h2.4l1.2 3.6-1.8 1.35a8.7 8.7 0 0 0 3.6 3.6l1.35-1.8 3.6 1.2v2.4c0 .828-.697 1.487-1.518 1.383A12.75 12.75 0 0 1 3.117 3.768C3.013 2.947 3.672 2.25 4.5 2.25Z" stroke="#2E282F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>+91 99206 38305</span>
+            </a>
+            <a class="contact-row" href="mailto:subin@dott.health.com">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.25" y="3.75" width="13.5" height="10.5" rx="1.5" stroke="#2E282F" stroke-width="1.3"/><path d="M2.7 4.5 9 9.75l6.3-5.25" stroke="#2E282F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>subin@dott.health.com</span>
+            </a>
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5s5.25-4.365 5.25-8.25a5.25 5.25 0 1 0-10.5 0C3.75 12.135 9 16.5 9 16.5Z" stroke="#2E282F" stroke-width="1.3" stroke-linejoin="round"/><circle cx="9" cy="8.25" r="1.875" stroke="#2E282F" stroke-width="1.3"/></svg>
+              <span>Building No: Vii/540 &ndash; C15 Second Floor Golden Plaza Tb Junction<br>Angamaly, Ernakulam, Kerala, India &ndash; 683572</span>
+            </div>
+          </div>
+
+          <div class="contact-map">
+            <iframe src="https://maps.google.com/maps?q=Golden%20Plaza%2C%20TB%20Junction%2C%20Angamaly%2C%20Ernakulam%2C%20Kerala%2C%20India%20683572&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Dott Health office"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="static/js/script.js"></script>
 </body>
 </html>
