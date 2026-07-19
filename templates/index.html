@@ -24,6 +24,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="#" data-open-modal="vision-overlay">Our vision</a>
       <a href="#" data-open-modal="contact-overlay">Contact us</a>
+      <button type="button" class="btn-register" data-open-modal="register-overlay">Register</button>
     </nav>
     <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
       <svg class="icon-bars" width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M0 1H22" stroke="white" stroke-width="2"/><path d="M0 8H22" stroke="white" stroke-width="2"/><path d="M0 15H22" stroke="white" stroke-width="2"/></svg>
@@ -89,12 +90,11 @@
       <div class="vision-scroll">
         <div class="vision-scroll-inner">
           <h2 id="vision-title" class="vision-heading">Our vision</h2>
-          <p class="vision-lead">To make hospital-quality healthcare a home experience - accessible to every family, anywhere, anytime.</p>
-          <p class="vision-body">Why this version works: Your original vision was accurate but read as three separate promises stitched together ("accessible, affordable, available... not limited by hospitals, geography..."). Investors and partners remember one sharp idea, not a list of adjectives. This version compresses the whole thesis into a single sentence: healthcare's location changes, not its quality. Everything else in your deck (Homespital&trade;, the Continuum, the unit model) becomes proof of that one claim.</p>
+          <p class="vision-lead vision-lead-regular"><strong>Healthcare beyond boundaries.</strong> Most families get expert care only when they can reach a hospital - we're building the reverse: hospital-quality care that reaches them, at home, anywhere. Because location should never decide the standard of care a family gets.</p>
 
           <h2 class="vision-heading">Mission</h2>
-          <p class="vision-lead">We bring hospital-grade care into the home - connecting patients, doctors, nurses, diagnostics, and pharmacy on one platform, so families get continuous care without the cost, delay, or disruption of a hospital visit.</p>
-          <p class="vision-body">Why this version works: Your original mission was five separate bullet points (bring care home, build network, connect stakeholders, reduce hospital visits, enable continuous care). A mission statement should be sayable in one breath and answer three questions: what do we do, how do we do it, why does it matter. This version does that in one sentence &mdash; the "how" (the platform) and the "why" (cost/delay/disruption) are both load-bearing, not decorative.</p>
+          <p class="vision-lead vision-lead-regular"><strong>DOTT follows your family's entire health journey</strong> - from catching a risk early, to a specialist's second opinion, to treatment delivered at home, to staying well afterward. Doctors, nurses, diagnostics, and AI all work from one platform, so care stays continuous instead of starting over at every visit. It's expert medicine, led by real doctors, without the hospital in between.</p>
+          <div class="vision-spacer"></div>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
             </a>
             <a class="contact-row" href="mailto:subin@dott.health.com">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.25" y="3.75" width="13.5" height="10.5" rx="1.5" stroke="#2E282F" stroke-width="1.3"/><path d="M2.7 4.5 9 9.75l6.3-5.25" stroke="#2E282F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>subin@dott.health.com</span>
+              <span>subin@dott.health</span>
             </a>
             <div class="contact-row">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5s5.25-4.365 5.25-8.25a5.25 5.25 0 1 0-10.5 0C3.75 12.135 9 16.5 9 16.5Z" stroke="#2E282F" stroke-width="1.3" stroke-linejoin="round"/><circle cx="9" cy="8.25" r="1.875" stroke="#2E282F" stroke-width="1.3"/></svg>
@@ -134,6 +134,348 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="register-overlay">
+  <div class="modal-card register-card" role="dialog" aria-modal="true" aria-labelledby="register-title">
+
+    <div class="register-header-text">
+      <div class="register-title-row">
+        <div id="register-header-copy">
+          <h3 id="register-title">Bring your expertise home.</h3>
+          <p class="register-sub">We're building a network of doctors and nurses to bring hospital-quality care home. Tell us who you are.</p>
+        </div>
+        <button type="button" class="modal-close" id="register-close" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#2E282F" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="register-body" class="register-body">
+      <div class="register-body-fade-top" aria-hidden="true"></div>
+
+      <div id="register-success" class="form-success" hidden>
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" class="success-check-icon">
+          <circle class="success-circle" cx="30" cy="30" r="26"/>
+          <path class="success-tick" d="M18 31 L26 39 L42 21" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Welcome aboard! Our team will reach out shortly to walk you through the next steps.</p>
+      </div>
+
+      <div id="register-form-wrap">
+        <p class="register-question">I am a...</p>
+        <div class="profession-options" id="profession-options">
+          <button type="button" class="profession-option" data-profession="doctor">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#430A4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 22.0002V19.0002C20 16.1718 20 14.7576 19.1213 13.8789C18.2426 13.0002 16.8284 13.0002 14 13.0002L12 15.0002L10 13.0002C7.17157 13.0002 5.75736 13.0002 4.87868 13.8789C4 14.7576 4 16.1718 4 19.0002V22.0002"/>
+              <path d="M15.5 6.50012V5.50012C15.5 3.56713 13.933 2.00012 12 2.00012C10.067 2.00012 8.5 3.56713 8.5 5.50012V6.50012C8.5 8.43312 10.067 10.0001 12 10.0001C13.933 10.0001 15.5 8.43312 15.5 6.50012Z"/>
+              <path d="M16 16.0001V19.0001M17.5 17.5001L14.5 17.5001"/>
+            </svg>
+            <span>Doctor</span>
+          </button>
+          <button type="button" class="profession-option" data-profession="nurse">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#430A4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 22.0002V21.0002C4 19.131 4 18.1964 4.40192 17.5002C4.66523 17.0442 5.04394 16.6655 5.5 16.4022C6.19615 16.0002 7.13077 16.0002 9 16.0002L12 20.0002L15 16.0002C16.8692 16.0002 17.8038 16.0002 18.5 16.4022C18.9561 16.6655 19.3348 17.0442 19.5981 17.5002C20 18.1964 20 19.131 20 21.0002V22.0002"/>
+              <path d="M15.9374 7.99976L16.9552 3.86408C17.1882 2.91735 16.4833 2.00024 15.5228 2.00024H8.47724C7.51665 2.00024 6.81182 2.91735 7.04482 3.86407L8.06263 7.99976M15.9374 7.99976V9.99976C15.9374 12.2089 14.1745 13.9998 12 13.9998C9.82545 13.9998 8.06263 12.2089 8.06263 9.99976V7.99976M15.9374 7.99976H8.06263"/>
+              <path d="M11.9998 4.00024V5.99976M12.9995 5L11 5"/>
+            </svg>
+            <span>Nurse</span>
+          </button>
+        </div>
+
+        <div class="register-expand" id="register-expand">
+          <div class="register-expand-inner">
+            <form class="modal-form" id="register-form">
+
+              <h4 class="register-section-title">1. Basic Information</h4>
+              <label class="sr-only" for="reg-name">Full name</label>
+              <input id="reg-name" name="name" type="text" placeholder="Full name" required>
+
+              <label class="sr-only" for="reg-mobile">Mobile number</label>
+              <input id="reg-mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile number" required>
+
+              <label class="register-checkbox"><input type="checkbox" id="reg-whatsapp" name="whatsapp"><span class="checkbox-box"></span> This number has WhatsApp</label>
+
+              <label class="sr-only" for="reg-email">Email address</label>
+              <input id="reg-email" name="email" type="email" placeholder="Email address" required>
+
+              <label class="sr-only" for="reg-city">City</label>
+              <input id="reg-city" name="city" type="text" placeholder="City" required>
+
+              <label class="sr-only" for="reg-state-trigger">State</label>
+              <div class="single-select" id="reg-state">
+                <input type="hidden" name="state" id="reg-state-value" required value="">
+                <button type="button" class="multi-select-trigger" id="reg-state-trigger" data-placeholder="true">
+                  <span class="multi-select-trigger-text">State</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="multi-select-panel" hidden>
+                  <button type="button" class="multi-select-item" data-value="Andhra Pradesh">Andhra Pradesh</button>
+                  <button type="button" class="multi-select-item" data-value="Arunachal Pradesh">Arunachal Pradesh</button>
+                  <button type="button" class="multi-select-item" data-value="Assam">Assam</button>
+                  <button type="button" class="multi-select-item" data-value="Bihar">Bihar</button>
+                  <button type="button" class="multi-select-item" data-value="Chhattisgarh">Chhattisgarh</button>
+                  <button type="button" class="multi-select-item" data-value="Goa">Goa</button>
+                  <button type="button" class="multi-select-item" data-value="Gujarat">Gujarat</button>
+                  <button type="button" class="multi-select-item" data-value="Haryana">Haryana</button>
+                  <button type="button" class="multi-select-item" data-value="Himachal Pradesh">Himachal Pradesh</button>
+                  <button type="button" class="multi-select-item" data-value="Jharkhand">Jharkhand</button>
+                  <button type="button" class="multi-select-item" data-value="Karnataka">Karnataka</button>
+                  <button type="button" class="multi-select-item" data-value="Kerala">Kerala</button>
+                  <button type="button" class="multi-select-item" data-value="Madhya Pradesh">Madhya Pradesh</button>
+                  <button type="button" class="multi-select-item" data-value="Maharashtra">Maharashtra</button>
+                  <button type="button" class="multi-select-item" data-value="Manipur">Manipur</button>
+                  <button type="button" class="multi-select-item" data-value="Meghalaya">Meghalaya</button>
+                  <button type="button" class="multi-select-item" data-value="Mizoram">Mizoram</button>
+                  <button type="button" class="multi-select-item" data-value="Nagaland">Nagaland</button>
+                  <button type="button" class="multi-select-item" data-value="Odisha">Odisha</button>
+                  <button type="button" class="multi-select-item" data-value="Punjab">Punjab</button>
+                  <button type="button" class="multi-select-item" data-value="Rajasthan">Rajasthan</button>
+                  <button type="button" class="multi-select-item" data-value="Sikkim">Sikkim</button>
+                  <button type="button" class="multi-select-item" data-value="Tamil Nadu">Tamil Nadu</button>
+                  <button type="button" class="multi-select-item" data-value="Telangana">Telangana</button>
+                  <button type="button" class="multi-select-item" data-value="Tripura">Tripura</button>
+                  <button type="button" class="multi-select-item" data-value="Uttar Pradesh">Uttar Pradesh</button>
+                  <button type="button" class="multi-select-item" data-value="Uttarakhand">Uttarakhand</button>
+                  <button type="button" class="multi-select-item" data-value="West Bengal">West Bengal</button>
+                </div>
+              </div>
+
+              <div id="doctor-only-fields" hidden>
+                <h4 class="register-section-title">2. Professional Details</h4>
+                <label class="sr-only" for="reg-license">Registration number</label>
+                <input id="reg-license" name="license" type="text" placeholder="Registration number">
+
+                <label class="sr-only" for="reg-qualification">Qualification</label>
+                <input id="reg-qualification" name="qualification" type="text" placeholder="Qualification">
+
+                <label class="sr-only" for="reg-specialty-trigger">Specialty</label>
+                <div class="single-select" id="reg-specialty">
+                  <input type="hidden" name="specialty" id="reg-specialty-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-specialty-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Specialty</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="General Medicine">General Medicine</button>
+                    <button type="button" class="multi-select-item" data-value="Family Medicine">Family Medicine</button>
+                    <button type="button" class="multi-select-item" data-value="Internal Medicine">Internal Medicine</button>
+                    <button type="button" class="multi-select-item" data-value="Cardiology">Cardiology</button>
+                    <button type="button" class="multi-select-item" data-value="Pediatrics">Pediatrics</button>
+                    <button type="button" class="multi-select-item" data-value="Orthopedics">Orthopedics</button>
+                    <button type="button" class="multi-select-item" data-value="Gynecology &amp; Obstetrics">Gynecology &amp; Obstetrics</button>
+                    <button type="button" class="multi-select-item" data-value="Dermatology">Dermatology</button>
+                    <button type="button" class="multi-select-item" data-value="ENT">ENT</button>
+                    <button type="button" class="multi-select-item" data-value="Neurology">Neurology</button>
+                    <button type="button" class="multi-select-item" data-value="Psychiatry">Psychiatry</button>
+                    <button type="button" class="multi-select-item" data-value="Pulmonology">Pulmonology</button>
+                    <button type="button" class="multi-select-item" data-value="Nephrology">Nephrology</button>
+                    <button type="button" class="multi-select-item" data-value="Gastroenterology">Gastroenterology</button>
+                    <button type="button" class="multi-select-item" data-value="Endocrinology">Endocrinology</button>
+                    <button type="button" class="multi-select-item" data-value="Oncology">Oncology</button>
+                    <button type="button" class="multi-select-item" data-value="Critical Care / ICU">Critical Care / ICU</button>
+                    <button type="button" class="multi-select-item" data-value="General / Home Nursing">General / Home Nursing</button>
+                    <button type="button" class="multi-select-item" data-value="Geriatric Care">Geriatric Care</button>
+                    <button type="button" class="multi-select-item" data-value="Other">Other</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-experience-trigger">Years of experience</label>
+                <div class="single-select" id="reg-experience">
+                  <input type="hidden" name="experience" id="reg-experience-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-experience-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Years of experience</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="0-2 years">0-2 years</button>
+                    <button type="button" class="multi-select-item" data-value="3-5 years">3-5 years</button>
+                    <button type="button" class="multi-select-item" data-value="6-10 years">6-10 years</button>
+                    <button type="button" class="multi-select-item" data-value="11-15 years">11-15 years</button>
+                    <button type="button" class="multi-select-item" data-value="16-20 years">16-20 years</button>
+                    <button type="button" class="multi-select-item" data-value="20+ years">20+ years</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-workplace">Current hospital/clinic</label>
+                <input id="reg-workplace" name="workplace" type="text" placeholder="Current hospital/clinic">
+
+                <h4 class="register-section-title">3. Interested Services</h4>
+                <div class="register-checkboxes">
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="second-opinion"><span class="checkbox-box"></span> DOTT Second Opinion</label>
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="homespital"><span class="checkbox-box"></span> DOTT Homespital</label>
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="online-consultation"><span class="checkbox-box"></span> Online Consultation</label>
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="home-consultation"><span class="checkbox-box"></span> Home Consultation</label>
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="icu-at-home"><span class="checkbox-box"></span> ICU at Home</label>
+                  <label class="register-checkbox"><input type="checkbox" name="services" value="advisory-panel"><span class="checkbox-box"></span> Medical Advisory Panel</label>
+                </div>
+
+                <h4 class="register-section-title">4. Consultation Preferences</h4>
+
+                <label class="sr-only" for="reg-mode-trigger">Preferred consultation mode</label>
+                <div class="single-select" id="reg-mode">
+                  <input type="hidden" name="mode" id="reg-mode-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-mode-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Preferred consultation mode</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="online">Online</button>
+                    <button type="button" class="multi-select-item" data-value="home">Home</button>
+                    <button type="button" class="multi-select-item" data-value="both">Both</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-days-trigger">Available days</label>
+                <div class="single-select" id="reg-days">
+                  <input type="hidden" name="days" id="reg-days-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-days-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Available days</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="Weekdays only">Weekdays only</button>
+                    <button type="button" class="multi-select-item" data-value="Weekends only">Weekends only</button>
+                    <button type="button" class="multi-select-item" data-value="All days">All days</button>
+                    <button type="button" class="multi-select-item" data-value="Flexible / on-call">Flexible / on-call</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="nurse-only-fields" hidden>
+                <h4 class="register-section-title">2. Professional Details</h4>
+                <label class="sr-only" for="reg-license-nurse">Registration number</label>
+                <input id="reg-license-nurse" name="license" type="text" placeholder="Registration number">
+
+                <label class="sr-only" for="reg-qualification-nurse-trigger">Qualification</label>
+                <div class="single-select" id="reg-qualification-nurse">
+                  <input type="hidden" name="qualification" id="reg-qualification-nurse-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-qualification-nurse-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Qualification</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="ANM">ANM</button>
+                    <button type="button" class="multi-select-item" data-value="GNM">GNM</button>
+                    <button type="button" class="multi-select-item" data-value="B.Sc. Nursing">B.Sc. Nursing</button>
+                    <button type="button" class="multi-select-item" data-value="Post Basic B.Sc.">Post Basic B.Sc.</button>
+                    <button type="button" class="multi-select-item" data-value="M.Sc. Nursing">M.Sc. Nursing</button>
+                    <button type="button" class="multi-select-item" data-value="Nurse Practitioner">Nurse Practitioner</button>
+                    <button type="button" class="multi-select-item" data-value="Other">Other</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-experience-nurse-trigger">Years of experience</label>
+                <div class="single-select" id="reg-experience-nurse">
+                  <input type="hidden" name="experience" id="reg-experience-nurse-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-experience-nurse-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Years of experience</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="0-2 years">0-2 years</button>
+                    <button type="button" class="multi-select-item" data-value="3-5 years">3-5 years</button>
+                    <button type="button" class="multi-select-item" data-value="6-10 years">6-10 years</button>
+                    <button type="button" class="multi-select-item" data-value="11-15 years">11-15 years</button>
+                    <button type="button" class="multi-select-item" data-value="16-20 years">16-20 years</button>
+                    <button type="button" class="multi-select-item" data-value="20+ years">20+ years</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-employer">Current employer</label>
+                <input id="reg-employer" name="employer" type="text" placeholder="Current employer">
+
+                <h4 class="register-section-title">3. Preferred Nursing Services</h4>
+                <label class="sr-only" for="reg-nursing-services-trigger">Preferred nursing services</label>
+                <div class="multi-select" id="reg-nursing-services">
+                  <input type="hidden" name="nursing-services" id="reg-nursing-services-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-nursing-services-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Preferred nursing services</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" id="reg-nursing-services-panel" hidden>
+                    <label class="multi-select-item"><input type="checkbox" value="Home Nursing Care"><span class="checkbox-box"></span> Home Nursing Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Elderly Care"><span class="checkbox-box"></span> Elderly Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="ICU at Home"><span class="checkbox-box"></span> ICU at Home</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Post-Operative Care"><span class="checkbox-box"></span> Post-Operative Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Palliative Care"><span class="checkbox-box"></span> Palliative Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Mother &amp; Baby Care"><span class="checkbox-box"></span> Mother &amp; Baby Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Newborn Care"><span class="checkbox-box"></span> Newborn Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Wound Care &amp; Dressing"><span class="checkbox-box"></span> Wound Care &amp; Dressing</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Injection &amp; IV Therapy"><span class="checkbox-box"></span> Injection &amp; IV Therapy</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Catheter Care"><span class="checkbox-box"></span> Catheter Care</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Physiotherapy Assistance"><span class="checkbox-box"></span> Physiotherapy Assistance</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Routine Health Check-up"><span class="checkbox-box"></span> Routine Health Check-up</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Tele-Nursing"><span class="checkbox-box"></span> Tele-Nursing</label>
+                    <label class="multi-select-item"><input type="checkbox" value="Patient Education &amp; Counselling"><span class="checkbox-box"></span> Patient Education &amp; Counselling</label>
+                  </div>
+                </div>
+
+                <h4 class="register-section-title">4. Work Preferences</h4>
+                <label class="sr-only" for="reg-working-area">Preferred Working Area</label>
+                <input id="reg-working-area" name="working-area" type="text" placeholder="Preferred Working Area">
+
+                <label class="sr-only" for="reg-district-city">Preferred District/City</label>
+                <input id="reg-district-city" name="district-city" type="text" placeholder="Preferred District/City">
+
+                <label class="sr-only" for="reg-shift-trigger">Preferred Shift</label>
+                <div class="single-select" id="reg-shift">
+                  <input type="hidden" name="shift" id="reg-shift-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-shift-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Preferred Shift</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="Full-time">Full-time</button>
+                    <button type="button" class="multi-select-item" data-value="Part-time">Part-time</button>
+                    <button type="button" class="multi-select-item" data-value="Day Shift">Day Shift</button>
+                    <button type="button" class="multi-select-item" data-value="Night Shift">Night Shift</button>
+                    <button type="button" class="multi-select-item" data-value="On-call">On-call</button>
+                  </div>
+                </div>
+
+                <label class="sr-only" for="reg-travel-trigger">Willing to Travel</label>
+                <div class="single-select" id="reg-travel">
+                  <input type="hidden" name="willing-to-travel" id="reg-travel-value" value="">
+                  <button type="button" class="multi-select-trigger" id="reg-travel-trigger" data-placeholder="true">
+                    <span class="multi-select-trigger-text">Willing to Travel</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="multi-select-panel" hidden>
+                    <button type="button" class="multi-select-item" data-value="Yes">Yes</button>
+                    <button type="button" class="multi-select-item" data-value="No">No</button>
+                  </div>
+                </div>
+
+                <h4 class="register-section-title">5. Languages Known</h4>
+              </div>
+
+              <label class="sr-only" for="reg-languages-trigger">Languages known</label>
+              <div class="multi-select" id="reg-languages">
+                <input type="hidden" name="languages" id="reg-languages-value" value="">
+                <button type="button" class="multi-select-trigger" id="reg-languages-trigger" data-placeholder="true">
+                  <span class="multi-select-trigger-text">Languages known</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="multi-select-panel" id="reg-languages-panel" hidden>
+                  <label class="multi-select-item"><input type="checkbox" value="English"><span class="checkbox-box"></span> English</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Malayalam"><span class="checkbox-box"></span> Malayalam</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Hindi"><span class="checkbox-box"></span> Hindi</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Tamil"><span class="checkbox-box"></span> Tamil</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Telugu"><span class="checkbox-box"></span> Telugu</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Kannada"><span class="checkbox-box"></span> Kannada</label>
+                  <label class="multi-select-item"><input type="checkbox" value="Other"><span class="checkbox-box"></span> Other</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="register-body-fade-bottom" aria-hidden="true"></div>
     </div>
   </div>
 </div>
