@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Submissions — Dott Health</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Dott Health — submissions</h1>
+  <form method="post" action="{{ url_for('admin_logout') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit" class="btn btn-small">Sign out</button>
+  </form>
+</div>
+
+<div class="container">
+
+  <div class="tabs">
+    <a class="tab {% if table == 'registrations' %}active{% endif %}"
+       href="{{ url_for('admin_dashboard', table='registrations') }}">
+      Practitioners ({{ counts.registrations }})
+    </a>
+    <a class="tab {% if table == 'waitlist' %}active{% endif %}"
+       href="{{ url_for('admin_dashboard', table='waitlist') }}">
+      Waitlist ({{ counts.waitlist }})
+    </a>
+  </div>
+
+  <div class="toolbar">
+    <span class="count">
+      {% if total %}
+        Showing {{ rows|length }} of {{ total }}
+      {% else %}
+        No submissions yet
+      {% endif %}
+    </span>
+    {% if total %}
+    <a class="export" href="{{ url_for('admin_export', table=table) }}">Download CSV</a>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    {% if not rows %}
+      <p class="empty">
+        Nothing here yet. Submissions from the site will appear as they arrive.
+      </p>
+    {% else %}
+    <div class="table-scroll">
+      <table>
+        <thead>
+          {% if table == 'registrations' %}
+          <tr>
+            <th>Received</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Reg. no.</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Details</th>
+          </tr>
+          {% else %}
+          <tr>
+            <th>Received</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+          {% endif %}
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <td class="muted">{{ row.created_at }}</td>
+            {% if table == 'registrations' %}
+              <td>
+                {% if row.profession %}<span class="pill">{{ row.profession }}</span>{% endif %}
+              </td>
+              <td>{{ row.name }}</td>
+              <td>{{ row.mobile }}{% if row.whatsapp %} <span class="muted">(WA)</span>{% endif %}</td>
+              <td>{{ row.email }}</td>
+              <td>{{ row.city }}{% if row.state %}, {{ row.state }}{% endif %}</td>
+              <td>{{ row.license }}</td>
+              <td>{{ row.qualification }}</td>
+              <td>{{ row.experience }}</td>
+              <td class="wrap">
+                {% if row.extra_parsed %}
+                <details class="extra">
+                  <summary>{{ row.extra_parsed|length }} more</summary>
+                  <dl>
+                    {% for key, value in row.extra_parsed.items() %}
+                    <dt>{{ label_for(key) }}</dt>
+                    <dd>
+                      {%- if value is sequence and value is not string -%}
+                        {{ value|join(', ') }}
+                      {%- else -%}
+                        {{ value }}
+                      {%- endif -%}
+                    </dd>
+                    {% endfor %}
+                  </dl>
+                </details>
+                {% else %}
+                <span class="muted">—</span>
+                {% endif %}
+              </td>
+            {% else %}
+              <td>{{ row.name }}</td>
+              <td>{{ row.email }}</td>
+              <td>{{ row.phone or '—' }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if page > 1 or has_next %}
+  <div class="pager">
+    {% if page > 1 %}
+      <a href="{{ url_for('admin_dashboard', table=table, page=page-1) }}">Newer</a>
+    {% endif %}
+    <span class="muted">Page {{ page }}</span>
+    {% if has_next %}
+      <a href="{{ url_for('admin_dashboard', table=table, page=page+1) }}">Older</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if audit %}
+  <div class="audit">
+    <h2>Recent admin activity</h2>
+    <div class="card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>When</th><th>Event</th><th>IP</th><th>Detail</th></tr>
+          </thead>
+          <tbody>
+            {% for entry in audit %}
+            <tr>
+              <td class="muted">{{ entry.ts }}</td>
+              <td>{{ entry.event }}</td>
+              <td class="muted">{{ entry.ip or '—' }}</td>
+              <td class="muted">{{ entry.detail or '—' }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[Unit]
+Description=Back up the Dott submissions database
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+Environment="DB_PATH=/var/lib/dott/dott.db"
+Environment="BACKUP_DIR=/var/lib/dott/backups"
+Environment="KEEP_DAYS=30"
+ExecStart=/home/ubuntu/dott_landing/deploy/backup.sh

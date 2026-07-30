@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly Dott submissions database backup
+
+[Timer]
+OnCalendar=*-*-* 18:30:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
