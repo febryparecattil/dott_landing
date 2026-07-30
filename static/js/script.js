@@ -75,6 +75,22 @@
     });
   });
 
+  // Reuses one note per form so repeated failures replace the message
+  // instead of stacking up underneath the button.
+  function showFormError(form, message) {
+    var note = form.querySelector('.form-error-note');
+    if (!message) {
+      if (note) note.remove();
+      return;
+    }
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'modal-note form-error-note';
+      form.appendChild(note);
+    }
+    note.textContent = message;
+  }
+
   var waitlistForm = document.getElementById('waitlist-form');
   var waitlistHeaderText = document.getElementById('waitlist-header-text');
   var waitlistSubmitButton = waitlistForm.querySelector('button[type="submit"]');
@@ -82,6 +98,7 @@
 
   waitlistForm.addEventListener('submit', function (e) {
     e.preventDefault();
+    showFormError(waitlistForm, '');
 
     var formData = new FormData(waitlistForm);
     var payload = {
@@ -119,10 +136,7 @@
       .catch(function (error) {
         waitlistSubmitButton.disabled = false;
         waitlistSubmitButton.textContent = originalSubmitLabel;
-        var errorNote = document.createElement('p');
-        errorNote.className = 'modal-note';
-        errorNote.textContent = error.message || 'Unable to submit right now. Please try again.';
-        waitlistForm.appendChild(errorNote);
+        showFormError(waitlistForm, error.message || 'Unable to submit right now. Please try again.');
       });
   });
 
@@ -284,11 +298,69 @@
     });
   });
 
+  var registerSubmitButton = registerForm.querySelector('button[type="submit"]');
+  var originalRegisterLabel = registerSubmitButton.textContent;
+
+  function collectRegisterPayload() {
+    var selected = professionOptions.querySelector('.profession-option.selected');
+    var payload = {
+      profession: selected ? selected.getAttribute('data-profession') : ''
+    };
+
+    registerForm.querySelectorAll('input[name], select[name], textarea[name]').forEach(function (field) {
+      // The doctor and nurse blocks both contain name="license",
+      // "qualification" and "experience", so skip whichever block is hidden.
+      var block = field.closest('#doctor-only-fields, #nurse-only-fields');
+      if (block && block.hidden) return;
+
+      if (field.type === 'checkbox') {
+        if (field.value && field.value !== 'on') {
+          if (!Array.isArray(payload[field.name])) payload[field.name] = [];
+          if (field.checked) payload[field.name].push(field.value);
+        } else {
+          payload[field.name] = field.checked;
+        }
+        return;
+      }
+
+      payload[field.name] = field.value;
+    });
+
+    return payload;
+  }
+
   registerForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    registerHeaderText.style.display = 'none';
-    registerFormWrap.hidden = true;
-    registerSuccess.hidden = false;
+    showFormError(registerForm, '');
+
+    var payload = collectRegisterPayload();
+
+    registerSubmitButton.disabled = true;
+    registerSubmitButton.textContent = 'Submitting...';
+
+    fetch('/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          if (!response.ok) throw new Error(data.message || 'Submission failed');
+          return data;
+        });
+      })
+      .then(function () {
+        registerSubmitButton.disabled = false;
+        registerSubmitButton.textContent = originalRegisterLabel;
+        registerHeaderText.style.display = 'none';
+        registerFormWrap.hidden = true;
+        registerSuccess.hidden = false;
+      })
+      .catch(function (error) {
+        registerSubmitButton.disabled = false;
+        registerSubmitButton.textContent = originalRegisterLabel;
+        showFormError(registerForm, error.message || 'Unable to submit right now. Please try again.');
+      });
   });
 
   function resetRegisterModal() {
@@ -296,6 +368,7 @@
       registerSuccess.hidden = true;
       registerFormWrap.hidden = false;
       registerHeaderText.style.display = '';
+      showFormError(registerForm, '');
       registerForm.reset();
       professionOptions.querySelectorAll('.profession-option').forEach(function (b) {
         b.classList.remove('selected');
