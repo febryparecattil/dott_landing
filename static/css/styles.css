@@ -359,6 +359,10 @@ body.light-modal-active .menu-toggle .icon-close path { stroke: var(--plum); }
   opacity: 1;
   transform: scale(1) translateY(0);
 }
+#contact-overlay .vision-wrap {
+  height: auto;
+  max-height: 40vh;
+}
 .vision-image {
   order: 2;
   align-self: stretch;
